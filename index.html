@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bienvenido a Slate Systems</title>
+<meta name="description" content="Acabas de registrarte con Slate. Estos son tus 4 próximos pasos y qué hacemos durante los próximos 14 días.">
+<meta property="og:title" content="Bienvenido a Slate Systems">
+<meta property="og:description" content="Tus 4 próximos pasos y plan de 14 días. Más Llamadas. Más Reseñas. Más Trabajos.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bienvenido.slatesystems.io/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Bienvenido a Slate Systems">
+<meta name="twitter:description" content="Tus 4 próximos pasos y plan de 14 días.">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#152a45;--orange:#ee7000;--green:#22c55e;--gray:#64748b;--light:#f5f7fa;--border:#e2e8f0;--card:#fff;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--light);color:var(--navy);line-height:1.6;}
+
+header{background:var(--navy);color:#fff;padding:0.9rem 1.5rem;position:sticky;top:0;z-index:50;display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--orange);}
+.logo-link{display:flex;align-items:center;gap:0.7rem;text-decoration:none;color:#fff;}
+.logo-link img{height:38px;width:auto;display:block;}
+.logo-text{font-size:1.1rem;font-weight:700;letter-spacing:0.3px;}
+.lang-toggle{display:flex;gap:0.35rem;background:rgba(255,255,255,0.08);border-radius:8px;padding:0.2rem;}
+.lang-toggle a{color:#fff;text-decoration:none;padding:0.4rem 0.85rem;border-radius:6px;font-size:0.8rem;font-weight:600;letter-spacing:0.5px;opacity:0.55;transition:all 0.2s;}
+.lang-toggle a.active{opacity:1;background:var(--orange);}
+.lang-toggle a:hover{opacity:1;}
+
+.hero{background:linear-gradient(135deg,var(--navy) 0%,#1e3a5f 60%,#254870 100%);color:#fff;padding:4.5rem 1.5rem 3.5rem;text-align:center;position:relative;overflow:hidden;}
+.hero::before{content:"";position:absolute;top:-50%;right:-10%;width:500px;height:500px;background:radial-gradient(circle,rgba(238,112,0,0.15) 0%,transparent 70%);pointer-events:none;}
+.hero h1{font-size:3rem;font-weight:800;margin-bottom:0.4rem;letter-spacing:-0.03em;position:relative;}
+.hero .tagline{font-size:1.05rem;font-weight:700;color:var(--orange);letter-spacing:1px;text-transform:uppercase;margin-bottom:1.25rem;position:relative;}
+.hero .sub{font-size:1.15rem;opacity:0.92;max-width:600px;margin:0 auto 2.25rem;position:relative;}
+.hero .pill{display:inline-block;background:var(--orange);color:#fff;padding:0.35rem 0.95rem;border-radius:100px;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:1.25rem;position:relative;}
+
+.steps-preview{max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;padding:0 1rem;}
+.step-preview{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:12px;padding:1rem;backdrop-filter:blur(10px);text-decoration:none;color:#fff;}
+.step-preview .num{font-size:2rem;font-weight:800;color:var(--orange);line-height:1;}
+.step-preview .title{font-size:0.9rem;font-weight:600;margin-top:0.3rem;}
+.step-preview .time{font-size:0.75rem;opacity:0.7;margin-top:0.2rem;}
+
+main{max-width:860px;margin:0 auto;padding:3rem 1.5rem;}
+
+.step{background:var(--card);border-radius:16px;padding:2rem;margin-bottom:2rem;box-shadow:0 2px 8px rgba(0,0,0,0.04);border:1px solid var(--border);}
+.step-header{display:flex;align-items:flex-start;gap:1rem;margin-bottom:1.5rem;}
+.step-num{background:var(--orange);color:#fff;width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:800;flex-shrink:0;}
+.step-title{flex:1;}
+.step-title h2{font-size:1.5rem;font-weight:700;margin-bottom:0.25rem;}
+.step-title .meta{font-size:0.85rem;color:var(--gray);}
+.step h3{font-size:1.05rem;font-weight:600;margin:1rem 0 0.5rem;color:var(--navy);}
+.step p{margin-bottom:0.85rem;font-size:1rem;}
+.step ul{margin:0.75rem 0 1rem 1.25rem;}
+.step li{margin-bottom:0.4rem;}
+
+.callout{background:#fff8f0;border-left:4px solid var(--orange);padding:1rem 1.25rem;border-radius:0 8px 8px 0;margin:1rem 0;font-size:0.95rem;}
+.callout.green{background:#f0fdf4;border-left-color:var(--green);}
+.callout strong{color:var(--orange);}
+.callout.green strong{color:#166534;}
+
+.big-btn{display:inline-block;background:var(--orange);color:#fff;text-decoration:none;padding:1rem 2rem;border-radius:12px;font-weight:700;font-size:1.05rem;transition:transform 0.15s,box-shadow 0.15s;box-shadow:0 4px 12px rgba(238,112,0,0.25);}
+.big-btn:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(238,112,0,0.35);}
+.big-btn.secondary{background:var(--navy);box-shadow:0 4px 12px rgba(21,42,69,0.25);}
+.big-btn.secondary:hover{box-shadow:0 6px 16px rgba(21,42,69,0.35);}
+
+.id-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:0.75rem;margin:1rem 0;}
+.id-card{background:var(--light);border:1px solid var(--border);border-radius:10px;padding:1rem;text-align:center;}
+.id-card .icon{font-size:1.8rem;margin-bottom:0.3rem;}
+.id-card .label{font-size:0.85rem;font-weight:600;}
+
+.phase-group{background:var(--light);border-radius:12px;padding:1.25rem;margin:1rem 0;border:1px solid var(--border);}
+.phase-group h4{color:var(--orange);font-size:1rem;margin-bottom:0.75rem;text-transform:uppercase;letter-spacing:0.5px;}
+.tl-row{display:flex;gap:1rem;padding:0.65rem 0;border-bottom:1px dashed var(--border);}
+.tl-row:last-child{border-bottom:none;}
+.tl-day{flex-shrink:0;width:90px;font-weight:700;color:var(--navy);font-size:0.9rem;}
+.tl-what{flex:1;font-size:0.95rem;}
+.tl-what strong{color:var(--orange);}
+.tl-tag{display:inline-block;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.5px;padding:0.12rem 0.45rem;border-radius:4px;margin-right:0.4rem;vertical-align:middle;font-weight:700;}
+.tl-tag.text{background:#dbeafe;color:#1e40af;}
+.tl-tag.build{background:#fef3c7;color:#92400e;}
+
+.touchpoints{background:var(--light);border-radius:12px;padding:1.5rem;margin:1.5rem 0;}
+.tp-item{display:flex;gap:0.75rem;align-items:flex-start;padding:0.6rem 0;}
+.tp-check{color:var(--green);font-weight:700;flex-shrink:0;font-size:1.1rem;}
+.tp-item a{color:var(--orange);text-decoration:none;font-weight:600;}
+.tp-item a:hover{text-decoration:underline;}
+
+.bookmark-banner{background:linear-gradient(135deg,#fff8f0 0%,#fff3e6 100%);border:2px dashed var(--orange);border-radius:16px;padding:1.5rem;margin:3rem 0 2rem;text-align:center;}
+.bookmark-banner h3{font-size:1.2rem;margin-bottom:0.5rem;color:var(--orange);}
+.bookmark-banner kbd{background:var(--navy);color:#fff;padding:0.2rem 0.5rem;border-radius:4px;font-family:'SF Mono',Menlo,monospace;font-size:0.85rem;}
+.gift-banner{background:linear-gradient(135deg,var(--navy) 0%,#1e3a5f 100%);color:#fff;border-radius:16px;padding:2rem 1.5rem;margin:2rem 0;text-align:center;position:relative;overflow:hidden;}
+.gift-banner::before{content:"";position:absolute;top:-30%;left:-10%;width:300px;height:300px;background:radial-gradient(circle,rgba(238,112,0,0.25) 0%,transparent 70%);pointer-events:none;}
+.gift-icon{font-size:3rem;margin-bottom:0.5rem;position:relative;}
+.gift-banner h3{color:#fff;font-size:1.35rem;margin-bottom:0.5rem;position:relative;}
+.gift-banner .tag-small{color:var(--orange);font-size:0.75rem;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:0.5rem;position:relative;}
+.gift-banner p{color:rgba(255,255,255,0.9);max-width:540px;margin:0.5rem auto;font-size:0.95rem;position:relative;}
+.gift-banner .big-btn{margin-top:1rem;position:relative;}
+
+footer{background:var(--navy);color:#fff;padding:2.5rem 1.5rem;text-align:center;margin-top:4rem;}
+footer a{color:var(--orange);text-decoration:none;}
+footer .logo-footer{display:flex;justify-content:center;align-items:center;gap:0.6rem;margin-bottom:0.75rem;}
+footer .logo-footer img{height:40px;width:auto;display:block;}
+footer .logo-footer span{font-size:1.2rem;font-weight:700;}
+footer .links{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;margin:1rem 0;font-size:0.9rem;}
+footer .links a:hover{text-decoration:underline;}
+footer .tag{font-size:0.8rem;opacity:0.7;margin-top:0.5rem;}
+
+@media (max-width:600px){
+  .hero h1{font-size:2rem;}
+  .hero .sub{font-size:1rem;}
+  .step{padding:1.5rem;}
+  .step-title h2{font-size:1.2rem;}
+  .tl-row{flex-direction:column;gap:0.3rem;}
+  .tl-day{width:auto;}
+}
+</style>
+</head>
+<body>
+
+<header>
+<a href="/" class="logo-link">
+<img src="/logo.svg" alt="Slate Systems">
+<span class="logo-text">Slate Systems</span>
+</a>
+<div class="lang-toggle">
+<a href="https://welcome.slatesystems.io/">EN</a>
+<a href="/" class="active">ES</a>
+</div>
+</header>
+
+<section class="hero">
+<span class="pill">Ya estás adentro</span>
+<h1>Bienvenido a Slate.</h1>
+<p class="tagline">Más Llamadas. Más Reseñas. Más Trabajos.</p>
+<p class="sub">Ya pagaste. Empezamos hoy. Esto es lo que sigue, paso por paso.</p>
+<div class="steps-preview">
+<a href="#step1" class="step-preview">
+<div class="num">1</div>
+<div class="title">Tu Teléfono Nuevo</div>
+<div class="time">5 min</div>
+</a>
+<a href="#step2" class="step-preview">
+<div class="num">2</div>
+<div class="title">Cuéntanos de Ti</div>
+<div class="time">10 min</div>
+</a>
+<a href="#step3" class="step-preview">
+<div class="num">3</div>
+<div class="title">Manda EIN + Fotos</div>
+<div class="time">Hoy en la noche</div>
+</a>
+<a href="#step4" class="step-preview">
+<div class="num">4</div>
+<div class="title">Plan de 14 Días</div>
+<div class="time">Qué sigue</div>
+</a>
+</div>
+</section>
+
+<main>
+
+<section class="step" id="step1">
+<div class="step-header">
+<div class="step-num">1</div>
+<div class="step-title">
+<h2>Tu Número Nuevo de Negocio</h2>
+<div class="meta">5 minutos en nuestra llamada</div>
+</div>
+</div>
+
+<p>Este número va en tu página web, tu listado de Google, y todo tu marketing. Cada llamada a ese número suena en tu celular. Contestas como siempre. Nada cambia de cómo trabajas hoy.</p>
+
+<div class="callout green">
+<strong>¿Por qué un número nuevo?</strong> Tu celular normal no puede hacer las cosas automáticas. No puede contestar por ti cuando pierdes una llamada. No puede pedir reseñas después de un trabajo. No puede mandar seguimientos meses después.
+
+<br><br>Todo eso necesita un número especial de negocio que las compañías de teléfono hayan revisado y aprobado. A esa revisión le dicen <strong>A2P</strong>. Quiere decir que "este negocio tiene permiso de mandarles textos a sus clientes".
+
+<br><br>Nosotros hacemos todo por ti. Configuramos el número nuevo. Lo registramos con las compañías de teléfono. Lo conectamos a cada sistema. Tú no llenas nada. Tú no hablas con la compañía de teléfono. Lo único que haces tú es una verificación de ID rápida en nuestra llamada.
+
+<br><br><strong>El reenvío de llamadas mantiene tu vida igual.</strong> Cada llamada al número nuevo suena en tu celular, igual que siempre. Contestas igual. Hablas con los clientes igual. Nada cambia de cómo trabajas. El número nuevo se encarga de los textos automáticos por ti.
+</div>
+
+<h3>Verificación rápida de ID (una sola vez)</h3>
+<p>La compañía de teléfono necesita ver tu ID antes de que puedas tener una línea de negocio. Una vez por negocio. La ley lo pide.</p>
+
+<div class="callout">
+<strong>Cómo funciona en tu llamada:</strong> Sale un código QR en la pantalla. Lo escaneas con la cámara de tu celular. Tomas una foto de tu ID, una selfie rápida, y listo. Seguro. No hay que instalar nada.
+</div>
+
+<p><strong>Escoge cualquiera de estas identificaciones:</strong></p>
+<div class="id-grid">
+<div class="id-card"><div class="icon">🪪</div><div class="label">Licencia de Conducir</div></div>
+<div class="id-card"><div class="icon">🛂</div><div class="label">Pasaporte</div></div>
+<div class="id-card"><div class="icon">🏳️</div><div class="label">ID Nacional</div></div>
+<div class="id-card"><div class="icon">🏠</div><div class="label">Permiso de Residencia</div></div>
+</div>
+</section>
+
+<section class="step" id="step2">
+<div class="step-header">
+<div class="step-num">2</div>
+<div class="step-title">
+<h2>Cuéntanos de tu Negocio</h2>
+<div class="meta">10 minutos en nuestra llamada</div>
+</div>
+</div>
+<p>Tú nos cuentas, nosotros lo escribimos. Lo hacemos juntos en la llamada, igual que con el pago. Más fácil que llenar un formulario tú solo, y te ayudamos a decirlo bien.</p>
+
+<p><strong>Te vamos a preguntar:</strong></p>
+<ul>
+<li>Nombre del negocio, dirección, teléfono</li>
+<li>Qué haces y qué te hace bueno</li>
+<li>Servicios y áreas que cubres</li>
+<li>Tu horario</li>
+<li>Redes sociales</li>
+<li>Tu color favorito para la página web</li>
+<li>Tu EIN y tu Perfil de Google del negocio</li>
+</ul>
+
+<div class="callout">
+<strong>¿No estás en una llamada ahorita?</strong> Llénalo tú solo, tarda como 10 minutos.
+<div style="margin-top:0.75rem;"><a href="https://slatesystems.io/es/onboarding" target="_blank" rel="noopener" class="big-btn">Abre el formulario</a></div>
+</div>
+</section>
+
+<section class="step" id="step3">
+<div class="step-header">
+<div class="step-num">3</div>
+<div class="step-title">
+<h2>Mándanos tu EIN y Fotos</h2>
+<div class="meta">Mejor hazlo hoy en la noche</div>
+</div>
+</div>
+
+<p>Dos cosas por correo. Mándalas y empezamos a crear tu sistema mañana en la mañana.</p>
+
+<p><strong>1. Tu carta de EIN</strong> (la carta del IRS con tu identificación fiscal de negocio). La necesitamos para tu número local. ¿No tienes EIN? Sáltate esto, te ponemos un número gratuito (toll-free).</p>
+
+<p><strong>2. 25 fotos o más de tu trabajo.</strong> Fotos de antes y después. Del equipo. De los trabajos. Entre más, mejor. Trabajo real, nada de fotos de stock.</p>
+
+<div class="callout green">
+<strong>¿No tienes fotos listas? Te cubrimos.</strong> Usamos fotos profesionales de stock que van con tu oficio hasta que mandes las tuyas. Las puedes cambiar por fotos reales cuando quieras después del lanzamiento.
+</div>
+
+<div style="text-align:center;margin:1.5rem 0;">
+<a href="mailto:onboarding@slatesystems.io?subject=EIN%20y%20fotos%20para%20mi%20construcci%C3%B3n&body=Adjunto%3A%0A-%20Carta%20de%20EIN%0A-%20Fotos%20de%20trabajos%0A%0AGracias." class="big-btn">Mandar correo a onboarding@slatesystems.io</a>
+</div>
+</section>
+
+<section class="step" id="step4">
+<div class="step-header">
+<div class="step-num">4</div>
+<div class="step-title">
+<h2>Tu Plan de 14 Días</h2>
+<div class="meta">Lo que hacemos y lo que oyes de nosotros</div>
+</div>
+</div>
+<p>Así se ve la construcción paso a paso. Oyes de nosotros por texto en cada paso. Las etiquetas azules = texto de nosotros. Las amarillas = lo que estamos haciendo detrás de escena.</p>
+
+<div class="phase-group">
+<h4>Semana 1: Página Web + Reseñas de Google (Días 1 a 7)</h4>
+<div class="tl-row"><div class="tl-day">Hoy</div><div class="tl-what"><span class="tl-tag build">Construcción</span><strong>Empezamos.</strong> Pago recibido, información capturada. Nuestro equipo arranca tu página web y el sistema de reseñas.</div></div>
+<div class="tl-row"><div class="tl-day">Día 1</div><div class="tl-what"><span class="tl-tag text">Texto</span>"Tu proyecto ya arrancó. Te mantenemos al tanto. Tú no tienes que hacer nada."</div></div>
+<div class="tl-row"><div class="tl-day">Día 2</div><div class="tl-what"><span class="tl-tag text">Texto</span>Tu plan de 14 días, semana por semana.</div></div>
+<div class="tl-row"><div class="tl-day">Día 4</div><div class="tl-what"><span class="tl-tag text">Texto</span>"Ya llevamos la mitad. Descarga la aplicación LeadConnector. La configuramos juntos en tu llamada de lanzamiento."</div></div>
+<div class="tl-row"><div class="tl-day">Día 7</div><div class="tl-what"><span class="tl-tag text">Texto</span>"Tu página web ya quedó. Ahora estamos configurando las automatizaciones. También empezó el registro con las compañías de teléfono para que funcionen tus textos, tarda 3 a 5 días hábiles."</div></div>
+</div>
+
+<div class="phase-group">
+<h4>Semana 2: Google Business + Automatizaciones (Días 5 a 10)</h4>
+<div class="tl-row"><div class="tl-day">Días 5-9</div><div class="tl-what"><span class="tl-tag build">Construcción</span><strong>Perfil de Google del negocio.</strong> Conectamos tu listado de Google, actualizamos el teléfono y la página web en Google, activamos respuestas automáticas a reseñas, configuramos publicaciones automáticas. Si ya tienes un Perfil de Google, solo nos das acceso de Manager (te decimos cómo). Si no tienes uno, nosotros te lo creamos desde cero.</div></div>
+<div class="tl-row"><div class="tl-day">Días 7-10</div><div class="tl-what"><span class="tl-tag build">Construcción</span><strong>Automatizaciones.</strong> Texto automático por llamada perdida. Pedidos de reseña después de cada trabajo. Seguimiento de 1 año para clientes repetidos.</div></div>
+<div class="tl-row"><div class="tl-day">Día 10</div><div class="tl-what"><span class="tl-tag text">Texto</span>"Tu sistema está listo. Agenda tu llamada de lanzamiento aquí." 30 minutos, escoge cualquier horario.</div></div>
+</div>
+
+<div class="phase-group">
+<h4>Días finales: Pruebas + Lanzamiento (Días 10 a 14)</h4>
+<div class="tl-row"><div class="tl-day">Días 10-13</div><div class="tl-what"><span class="tl-tag build">Construcción</span><strong>Pruebas + QA.</strong> Probamos todo de punta a punta. Arreglamos cualquier cosa que lo necesite antes de tu llamada de lanzamiento.</div></div>
+<div class="tl-row"><div class="tl-day">Día 13</div><div class="tl-what"><span class="tl-tag text">Texto</span>Aviso de estafas. Cuando tu Perfil de Google salga en vivo, los estafadores lo encuentran y empiezan a llamarte para venderte SEO y anuncios. Te mandamos una guía con los trucos que usan para que los reconozcas rápido.</div></div>
+<div class="tl-row"><div class="tl-day">Día 14</div><div class="tl-what"><span class="tl-tag build">Lanzamiento</span><strong>Llamada de lanzamiento.</strong> 30 minutos. Te enseñamos tu página web, el sistema de reseñas, y la app. Prendemos el interruptor. Ya estás en vivo.</div></div>
+</div>
+
+<div class="touchpoints">
+<h3 style="margin-bottom:0.75rem;font-size:1.05rem;">Lo que recibes de nosotros:</h3>
+<div class="tp-item"><span class="tp-check">✓</span><div><strong>Tú no tocas nada.</strong> Nosotros armamos todo. Tú sigues trabajando como siempre.</div></div>
+<div class="tp-item"><span class="tp-check">✓</span><div><strong>Textos en cada paso</strong> para que siempre sepas qué está pasando.</div></div>
+<div class="tp-item"><span class="tp-check">✓</span><div><strong>Nada que instalar</strong> hasta la app en el Día 4. Sin otro software, sin cuentas, sin configuración.</div></div>
+<div class="tp-item"><span class="tp-check">✓</span><div><strong>Preguntas cuando quieras.</strong> Mándanos texto al <a href="sms:+18312267831">+1 (831) 226-7831</a>. Leemos todos los mensajes.</div></div>
+</div>
+</section>
+
+<div class="gift-banner">
+<div class="gift-icon">🎁</div>
+<div class="tag-small">Una cosa más</div>
+<h3>Tenemos un regalo para ti</h3>
+<p>Te mandamos un paquete después de tu llamada de lanzamiento. En la llamada te decimos qué hay adentro.</p>
+<p>Mándanos tu dirección postal por texto para que sepamos a dónde enviártelo.</p>
+<a href="sms:+18312267831?&amp;body=Mi%20direcci%C3%B3n%20postal%3A%20" class="big-btn">Mandar mi dirección postal</a>
+</div>
+
+<div class="bookmark-banner">
+<h3>📌 Guarda esta página</h3>
+<p>Vuelve cuando quieras a revisar tus pasos o tu cronograma.</p>
+<p style="margin-top:0.75rem;"><kbd>Ctrl + D</kbd> en Windows o <kbd>⌘ + D</kbd> en Mac.</p>
+</div>
+
+<div style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;margin:2rem 0;">
+<a href="https://help.slatesystems.io/es/" target="_blank" rel="noopener" class="big-btn secondary">Centro de Ayuda</a>
+</div>
+
+</main>
+
+<footer>
+<div class="logo-footer">
+<img src="/logo.svg" alt="Slate Systems">
+<span>Slate Systems</span>
+</div>
+<div class="links">
+<a href="https://slatesystems.io" target="_blank" rel="noopener">slatesystems.io</a>
+<a href="https://help.slatesystems.io/es/" target="_blank" rel="noopener">help.slatesystems.io</a>
+<a href="sms:+18312267831">+1 (831) 226-7831</a>
+<a href="mailto:onboarding@slatesystems.io">onboarding@slatesystems.io</a>
+</div>
+<p class="tag">Más Llamadas. Más Reseñas. Más Trabajos.</p>
+<p class="tag">$297 al mes. Sin contratos. Cancela cuando quieras.</p>
+<p class="tag">&copy; 2026 Slate Systems Inc</p>
+</footer>
+
+</body>
+</html>
