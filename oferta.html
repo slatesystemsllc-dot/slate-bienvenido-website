@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slate Tarifa de Hoy</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{ --navy:#0f1e34; --navy2:#1a2c47; --orange:#ea6a02; --orange2:#c75900; --green:#15803d; --ink:#0b1220; --muted:#64748b; --line:#e6e9ef; --bg:#f4f6fa; }
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  body{ font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; background:var(--bg); color:var(--ink); -webkit-font-smoothing:antialiased; }
+  .wrap{ max-width:1080px; margin:0 auto; padding:1.6rem 1.2rem 3rem; }
+
+  .brand{ display:flex; align-items:center; gap:0.6rem; justify-content:center; margin-bottom:1.1rem; }
+  .brand .logo{ font-size:1.5rem; font-weight:900; letter-spacing:-0.02em; color:var(--navy); }
+  .brand .logo b{ color:var(--orange); }
+  .brand .tag{ font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); border-left:2px solid var(--line); padding-left:0.6rem; }
+
+  .urgency{ background:var(--navy); color:#fff; border-radius:999px; padding:0.5rem 1.1rem; text-align:center; font-weight:700; font-size:0.86rem; width:fit-content; margin:0 auto 1.2rem; box-shadow:0 6px 20px rgba(15,30,52,0.18); }
+  .urgency .dot{ display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--orange); margin-right:0.5rem; vertical-align:middle; animation:pulse 1.4s infinite; }
+  @keyframes pulse{ 0%,100%{opacity:1} 50%{opacity:0.35} }
+
+  .hero{ text-align:center; margin-bottom:1.8rem; }
+  .hero h1{ font-size:2.5rem; font-weight:900; letter-spacing:-0.025em; color:var(--navy); line-height:1.08; }
+  .hero h1 em{ color:var(--orange); font-style:normal; }
+  .hero p{ font-size:1.08rem; color:var(--muted); margin-top:0.7rem; font-weight:500; }
+  .hero .anchor{ display:inline-flex; align-items:center; gap:0.5rem; margin-top:0.9rem; font-weight:700; color:var(--navy); }
+  .hero .anchor s{ color:var(--muted); font-weight:600; }
+  .hero .anchor b{ color:var(--orange); font-size:1.15rem; }
+
+  .grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1.1rem; align-items:stretch; }
+  .card{ position:relative; background:#fff; border:1.5px solid var(--line); border-radius:18px; padding:1.5rem 1.3rem 1.4rem; display:flex; flex-direction:column; box-shadow:0 4px 16px rgba(15,23,42,0.05); }
+  .card .name{ font-size:0.78rem; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); }
+  .card .dur{ font-size:1.7rem; font-weight:900; color:var(--navy); margin-top:0.15rem; letter-spacing:-0.02em; }
+  .card .total{ font-size:2.7rem; font-weight:900; color:var(--navy); margin-top:0.7rem; letter-spacing:-0.03em; line-height:1; }
+  .card .permo{ margin-top:0.5rem; font-size:0.98rem; font-weight:700; color:var(--ink); }
+  .card .permo s{ color:var(--muted); font-weight:600; margin-right:0.35rem; }
+  .card .permo b{ color:var(--orange); }
+  .card .freebadge{ margin-top:0.9rem; align-self:flex-start; background:#fff4e6; color:var(--orange2); border:1px solid #ffd9ad; border-radius:999px; padding:0.35rem 0.8rem; font-weight:800; font-size:0.86rem; }
+  .card .save{ margin-top:0.7rem; font-size:0.9rem; color:var(--green); font-weight:700; }
+  .card .spacer{ flex:1; }
+
+  .card.popular{ border-color:var(--orange); border-width:2.5px; box-shadow:0 14px 34px rgba(234,106,2,0.18); transform:translateY(-6px); }
+  .ribbon{ position:absolute; top:-13px; left:50%; transform:translateX(-50%); background:var(--orange); color:#fff; font-weight:800; font-size:0.72rem; letter-spacing:0.06em; text-transform:uppercase; padding:0.35rem 0.9rem; border-radius:999px; white-space:nowrap; box-shadow:0 6px 16px rgba(234,106,2,0.35); }
+  .card.value{ border-color:var(--navy); }
+  .ribbon.val{ background:var(--navy); box-shadow:0 6px 16px rgba(15,30,52,0.3); }
+
+  .trust{ margin-top:2rem; text-align:center; }
+  .trust .line{ font-size:1.05rem; font-weight:800; color:var(--navy); letter-spacing:-0.01em; }
+  .trust .line em{ color:var(--orange); font-style:normal; }
+  .trust .sub{ margin-top:0.5rem; font-size:0.92rem; color:var(--muted); font-weight:500; }
+  .trust .sub b{ color:var(--ink); }
+
+  .foot{ margin-top:1.4rem; text-align:center; font-size:0.78rem; color:var(--muted); }
+
+  @media(max-width:820px){ .grid{ grid-template-columns:1fr; } .card.popular{ transform:none; } .hero h1{ font-size:2rem; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="brand">
+    <span class="logo">Sla<b>te</b></span>
+    <span class="tag">Más Llamadas. Más Reseñas. Más Trabajos.</span>
+  </div>
+
+  <div class="urgency"><span class="dot"></span>Este precio es solo en la llamada de hoy. Cuando colguemos, vuelve a $297/mes.</div>
+
+  <div class="hero">
+    <h1>Asegura <em>$197/mes</em> hoy.</h1>
+    <p>Paga por adelantado en esta llamada y tu precio baja $100 cada mes. Simple, sin contratos ni trucos.</p>
+    <div class="anchor"><s>$297/mes</s> &rarr; <b>$197/mes asegurado</b></div>
+  </div>
+
+  <div class="grid">
+
+    <!-- 3 meses: MAS POPULAR -->
+    <div class="card popular">
+      <div class="ribbon">Más Popular</div>
+      <div class="name">Arranque</div>
+      <div class="dur">3 meses</div>
+      <div class="total">$591</div>
+      <div class="permo"><s>$297/mes</s> <b>$197/mes</b></div>
+      <div class="freebadge">Como 1 mes gratis</div>
+      <div class="spacer"></div>
+      <div class="save">Ahorras $300</div>
+    </div>
+
+    <!-- 6 meses -->
+    <div class="card">
+      <div class="name">Impulso</div>
+      <div class="dur">6 meses</div>
+      <div class="total">$1,182</div>
+      <div class="permo"><s>$297/mes</s> <b>$197/mes</b></div>
+      <div class="freebadge">Como 2 meses gratis</div>
+      <div class="spacer"></div>
+      <div class="save">Ahorras $600</div>
+    </div>
+
+    <!-- 12 meses: MEJOR VALOR -->
+    <div class="card value">
+      <div class="ribbon val">Mejor Valor</div>
+      <div class="name">Cimiento</div>
+      <div class="dur">12 meses</div>
+      <div class="total">$2,364</div>
+      <div class="permo"><s>$297/mes</s> <b>$197/mes</b></div>
+      <div class="freebadge">Como 4 meses gratis</div>
+      <div class="spacer"></div>
+      <div class="save">Ahorras $1,200</div>
+    </div>
+
+  </div>
+
+  <div class="trust">
+    <div class="line">Tú no tocas nada. <em>Nosotros lo armamos, tú recibes los trabajos.</em></div>
+    <div class="sub">Página web profesional &middot; Texto automático a llamadas perdidas &middot; Reseñas de 5 estrellas en Google &middot; Seguimiento automático. <b>Todo configurado para ti.</b></div>
+  </div>
+
+  <div class="foot">Pago por adelantado al precio fijo de $197/mes. Recibes exactamente los meses que pagas. Precio disponible solo en la llamada de hoy.</div>
+
+</div>
+</body>
+</html>
