@@ -1,0 +1,5 @@
+# bienvenido.slatesystems.io = la portada en espanol. Las paginas de cada cliente viven en welcome.slatesystems.io;
+# el mismo enlace funciona en los dos dominios (Dan 2026-09-02: "make javiers work on both").
+/w/* https://welcome.slatesystems.io/w/:splat 302
+/ob/* https://welcome.slatesystems.io/ob/:splat 302
+/fotos/* https://welcome.slatesystems.io/fotos/:splat 302
