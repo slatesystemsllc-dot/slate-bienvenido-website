@@ -1,5 +1,7 @@
-# bienvenido.slatesystems.io = la portada en espanol. Las paginas de cada cliente viven en welcome.slatesystems.io;
-# el mismo enlace funciona en los dos dominios (Dan 2026-09-02: "make javiers work on both").
-/w/* https://welcome.slatesystems.io/w/:splat 302
-/ob/* https://welcome.slatesystems.io/ob/:splat 302
-/fotos/* https://welcome.slatesystems.io/fotos/:splat 302
+# bienvenido.slatesystems.io = la portada en espanol. Las paginas de cada cliente viven en clients.slatesystems.io
+# (el dominio unico del cliente desde 2026-10-29; welcome.slatesystems.io solo redirige alli). El mismo enlace funciona
+# en los dos dominios (Dan 2026-09-02: "make javiers work on both").
+/w/* https://clients.slatesystems.io/w/:splat 302
+/ob/* https://clients.slatesystems.io/ob/:splat 302
+/fotos/* https://clients.slatesystems.io/fotos/:splat 302
+/listo/* https://clients.slatesystems.io/listo/:splat 302
